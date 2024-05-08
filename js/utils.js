@@ -1,18 +1,20 @@
+'use strict'
+
 function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-  // Function to start the timer
-  function startTimer() {
+function startTimer() {
     let startTime = Date.now();
-    gTimerInterval = setInterval(() => {
-      let elapsedTime = Date.now() - startTime;
-      let seconds = Math.floor(elapsedTime / 1000);
-      document.querySelector('.timer span').innerText = seconds.toString().padStart(3, '0')
-    }, 1000); // Update every millisecond
-  }
+    timerInterval = setInterval(() => {
+        let elapsedTime = Date.now() - startTime;
+        let seconds = Math.floor(elapsedTime / 1000);
+        document.querySelector('.timer span').innerText = seconds.toString().padStart(3, '0')
+    }, 1000);
+}
 
-  function stopTimer() {
-    clearInterval(gTimerInterval)
+function stopTimer() {
+    clearInterval(timerInterval)
     document.querySelector('.timer span').innerText = '000'
-  }
+}
+
